@@ -20,3 +20,6 @@ K_matrix=np.mat([[-3*k, 2*k*np.sin(alpha_1/2)*L_3, 0], \
                   -k*(np.sin(alpha_1)*L_2*((L_2*np.sin(alpha_1/2)-L_3*(np.sin(alpha_2/2)+np.cos(alpha_2/2)*theta_2))+(L_2*np.sin(alpha_1/2)-L_3*(np.sin(alpha_2/2)-np.cos(alpha_2/2)*theta_2)))), \
                   0], \
                  [,,]])
+
+
+#sfbsjdb
