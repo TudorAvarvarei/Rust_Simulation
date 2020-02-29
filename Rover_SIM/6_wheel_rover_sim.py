@@ -28,7 +28,7 @@ J_body=mass_of_rover_body*(rover_body_height**2+rover_body_width**2)/12
 # Initial Conditions
 z=0
 z_dot=0.5
-X=np.mat([[np.cos(alpha_1/2)*L_1],
+X=np.mat([[0],
           [0],
           [0]])
 X_dot=np.mat([[0],

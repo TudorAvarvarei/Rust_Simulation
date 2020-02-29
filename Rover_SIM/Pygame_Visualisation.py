@@ -2,7 +2,7 @@ import numpy as np
 import pygame as pg
 import time
 def Ground_Function(z):
-    x=0.5*np.sin(z)
+    x=0.1*np.sin(z)
     return x
 alpha_1=np.pi/2
 alpha_2=np.pi/2
