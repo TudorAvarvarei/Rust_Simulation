@@ -13,7 +13,7 @@ wheel_mass=1                                                                    
 mass_of_rover_body=50                                                               #[kg]
 rover_body_height=0.2                                                               #[m]
 rover_body_width=0.5                                                                #[m]
-I_rover_body=mass_of_rover_body*(rover_body_height**2\
+I_rover_body=mass_of_rover_body*(rover_body_height**2
 +rover_body_width**2)/12                                                            #[m^3]
 arm_length=0.5                                                                      #[m]
 I_drive_train=2*wheel_mass*arm_length**2                                            #[m^3]
