@@ -9,8 +9,10 @@ __author__="David Canosa Ybarra"
 def Ground_Function(z):
     if z<2:
         x=0
+    elif z>=2:
+        x=0.05*(np.cos(5*(z-2))-1)+0.5*(np.cos((z-2))-1)+0.01*(z-2)**2
     else:
-        x=0.2*(np.cos(z-2)-1)
+        pass
     return x
 alpha_1=np.pi/3
 alpha_2=np.pi/3
@@ -67,7 +69,7 @@ z_lst.append(z)
 t_lst.append(t)
 x_dot_dot.append(np.array(X_dot_dot)[0][0])
 count=0
-while z<10 and t<20:
+while z<40:
     X_dot_dot=M_matrix_inv*(K_matrix*X+C_matrix*X_dot+B_matrix*X_base)
 
 
@@ -88,6 +90,7 @@ while z<10 and t<20:
 plt.plot(z_lst, x_lst, label="Body")
 plt.plot(z_lst, x_base_lst, label="Ground")
 plt.legend()
+plt.axis('equal')
 plt.show()
 plt.plot(t_lst, x_dot_dot)
 plt.show()
