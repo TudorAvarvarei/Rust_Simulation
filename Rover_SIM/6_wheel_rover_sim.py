@@ -67,7 +67,13 @@ x_lst.append(np.array(X)[0][0]+L_1*np.cos(alpha_1/2))
 x_base_lst.append(np.array(X_base)[0][0])
 z_lst.append(z)
 t_lst.append(t)
+F_on_wheels_1=[]
+F_on_wheels_2=[]
+F_on_wheels_3=[]
 x_dot_dot.append(np.array(X_dot_dot)[0][0])
+F_on_wheels_1.append(k*(np.array(X)[0][0]-np.array(X_base)[0][0]+np.array(X)[1][0]*L_1*np.sin(alpha_1/2))-(mass_of_rover_body+3*m_wheel)*g/3)
+F_on_wheels_2.append(k*(np.array(X)[0][0]-np.array(X_base)[1][0]-np.array(X)[1][0]*L_2*np.sin(alpha_1/2)+np.array(X)[2][0]*L_3*np.sin(alpha_2/2))-(mass_of_rover_body+3*m_wheel)*g/3)
+F_on_wheels_3.append(k*(np.array(X)[0][0]-np.array(X_base)[2][0]-np.array(X)[1][0]*L_2*np.sin(alpha_1/2)-np.array(X)[2][0]*L_3*np.sin(alpha_2/2))-(mass_of_rover_body+3*m_wheel)*g/3)
 count=0
 while z<40:
     X_dot_dot=M_matrix_inv*(K_matrix*X+C_matrix*X_dot+B_matrix*X_base)
@@ -77,6 +83,11 @@ while z<40:
     X_base=np.mat([[Ground_Function(z+L_1*np.sin(alpha_1/2))],
                    [Ground_Function(z)],
                    [Ground_Function(z+2*L_3*np.sin(alpha_2/2))]])
+
+    # Finding forces on arms
+    F_on_wheels_1.append(k*(np.array(X)[0][0]-np.array(X_base)[0][0]+np.array(X)[1][0]*L_1*np.sin(alpha_1/2))-(mass_of_rover_body+3*m_wheel)*g/3)
+    F_on_wheels_2.append(k*(np.array(X)[0][0]-np.array(X_base)[1][0]-np.array(X)[1][0]*L_2*np.sin(alpha_1/2)+np.array(X)[2][0]*L_3*np.sin(alpha_2/2))-(mass_of_rover_body+3*m_wheel)*g/3)
+    F_on_wheels_3.append(k*(np.array(X)[0][0]-np.array(X_base)[2][0]-np.array(X)[1][0]*L_2*np.sin(alpha_1/2)-np.array(X)[2][0]*L_3*np.sin(alpha_2/2))-(mass_of_rover_body+3*m_wheel)*g/3)
     X=X+X_dot*dt
     X_dot=X_dot+X_dot_dot*dt
     x_lst.append(np.array(X)[0][0]+L_1*np.cos(alpha_1/2))
@@ -90,7 +101,21 @@ while z<40:
 plt.plot(z_lst, x_lst, label="Body")
 plt.plot(z_lst, x_base_lst, label="Ground")
 plt.legend()
+plt.title("Graph of the rover body displacement")
+plt.xlabel("Displacement (horizontal) [m]")
+plt.ylabel("Displacement (vertical) [m]")
 plt.axis('equal')
 plt.show()
 plt.plot(t_lst, x_dot_dot)
+plt.title("Rover body acceleration")
+plt.xlabel("Time [s]")
+plt.ylabel("Force [N]")
+plt.show()
+plt.plot(t_lst, F_on_wheels_1, label="Force on wheel 1")
+plt.plot(t_lst, F_on_wheels_2, label="Force on wheel 2")
+plt.plot(t_lst, F_on_wheels_3, label="Force on wheel 3")
+#plt.plot("Forces on wheels on the rover")
+plt.legend()
+plt.xlabel("Time [s]")
+plt.ylabel("Force [N]")
 plt.show()
