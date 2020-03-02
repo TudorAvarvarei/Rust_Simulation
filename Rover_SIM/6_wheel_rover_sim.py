@@ -10,7 +10,7 @@ def Ground_Function(z):
     if z<2:
         x=0
     elif z>=2:
-        x=0.05*(np.cos(5*(z-2))-1)+0.5*(np.cos((z-2))-1)+0.01*(z-2)**2
+        x=0.05*(np.cos(5*(z-2))-1)+0.5*(np.cos((z-2))-1)
     else:
         pass
     return x
