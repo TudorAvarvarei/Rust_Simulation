@@ -4,7 +4,7 @@ from random import *
 import numpy as np
 lst=[]
 
-n=6
+n=256
 array=np.zeros(n*6)
 x=range(1, n*6+1)
 for j in range(100000):
