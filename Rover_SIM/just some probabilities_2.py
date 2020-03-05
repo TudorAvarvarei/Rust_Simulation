@@ -18,8 +18,7 @@ for j in range(amount_of_tries):
     array[a-1]=array[a-1]+1
 
 
-print(len(array))
-plt.plot(x,array)
+plt.axis([750, 1000, 0, 0.015])
+plt.plot(x,array/amount_of_tries)
 plt.show()
 
-    
