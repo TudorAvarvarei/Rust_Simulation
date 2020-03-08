@@ -33,8 +33,7 @@ print(len(x))
 print(array)
 print(len(array))
 plt.bar(x,array/amount_of_tries, align='center',alpha=0.5)
-
-plt.xticks(x,axis)
+#plt.xticks(x,axis)
 plt.xlim(n,n*6+1)
 plt.show()
 

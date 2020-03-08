@@ -117,3 +117,8 @@ print(Final[0])
 #plt.xlabel("Time [s]")
 #plt.ylabel("Force [N]")
 #plt.show()
+
+
+
+
+
