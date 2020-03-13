@@ -24,7 +24,7 @@ for alpha_1 in angles:
             return x
 
         L_1=cg_height/np.cos(alpha_1/2)
-        lengths_L_3=np.linspace(0.1, L_1-0.1, 3)
+        lengths_L_3=np.linspace(0.3, L_1-0.3, 3)
         for L_3 in lengths_L_3:
             L_2=L_1-L_3
             k=170*10**3
@@ -105,7 +105,7 @@ for alpha_1 in angles:
                 x_dot_dot.append(np.array(X_dot_dot)[0][0])
                 count=count+1
                 t=t+dt
-            F_on_wheels_max.append([max(F_on_wheels_1)+max(F_on_wheels_2)+max(F_on_wheels_3), str(alpha_1/np.pi)+" Pi", str(alpha_2/np.pi)+" Pi", L_1, L_2, L_3])
+            F_on_wheels_max.append([max([max(F_on_wheels_1), max(F_on_wheels_2), max(F_on_wheels_3)]), str(alpha_1/np.pi)+" Pi", str(alpha_2/np.pi)+" Pi", L_1, L_2, L_3])
 
 
 
