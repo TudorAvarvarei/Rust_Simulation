@@ -105,7 +105,7 @@ for alpha_1 in angles:
                 x_dot_dot.append(np.array(X_dot_dot)[0][0])
                 count=count+1
                 t=t+dt
-            F_on_wheels_max.append([max([max(F_on_wheels_1), max(F_on_wheels_2), max(F_on_wheels_3)]), str(alpha_1/np.pi)+" Pi", str(alpha_2/np.pi)+" Pi", L_1, L_2, L_3])
+            F_on_wheels_max.append([max([max((np.array(F_on_wheels_1)**2)**0.5), max((np.array(F_on_wheels_2)**2)**0.5), max((np.array(F_on_wheels_3)**2)**0.5)]), str(alpha_1/np.pi)+" Pi", str(alpha_2/np.pi)+" Pi", L_1, L_2, L_3])
 
 
 
