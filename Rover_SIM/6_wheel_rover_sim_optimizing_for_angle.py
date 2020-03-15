@@ -7,10 +7,14 @@ from operator import itemgetter
 This is a simulation of a six wheel rover diluted to a 2D model with inaccurate values.
 
 """
-__author__="David Canosa Ybarra"
+__author__="David Canosa Ybarra" \
+           "Student Number: 4839277" \
+           "Email: dcanosaybarra@gmail.com"
 start_time = time.time()
 cg_height=0.5
 angles=np.linspace(np.pi/3,(np.pi*7/9),17)
+small_bump_size=0.05
+big_bump_size=0.5
 F_on_wheels_max=[]
 for alpha_1 in angles:
     for alpha_2 in angles:
@@ -111,13 +115,12 @@ for alpha_1 in angles:
 
     print("ONE SET OF ALPHA_2 DONE "+str((time.time() - start_time)))
 Final=sorted(F_on_wheels_max, key = itemgetter(0))
-print(Final[0])
-#plt.plot("Forces on wheels on the rover")
-#plt.legend()
-#plt.xlabel("Time [s]")
-#plt.ylabel("Force [N]")
-#plt.show()
-
+print("Maximum compressive force: "+str(Final[0][0])+"\n"+
+      "Angle on the bigger joint: "+str(Final[0][1])+"\n"+
+      "Angle on the secondary joint: "+str(Final[0][2])+"\n"+
+      "Length of arm 1: "+str(Final[0][3])+"\n"+
+      "Length of arm 2: "+str(Final[0][4])+"\n"+
+      "Length of arm 3: "+str(Final[0][5]))
 
 
 
